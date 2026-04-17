@@ -1,18 +1,19 @@
 package pe.edu.pe.smartrent_backend.Entities;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Property")
-public class Property {
+@Table(name = "Estate")
+public class Estate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProperty;
+    private Integer idProperty;
 
-    @Column(name = "litle", length = 100, nullable = false)
-    private String litle;
+    @Column(name = "title", length = 100, nullable = false)
+    private String title;
 
     @Column(name = "description", length = 200, nullable = false)
     private String description;
@@ -36,10 +37,10 @@ public class Property {
     private boolean state;
 
     @Column(name = "rooms", nullable = false)
-    private int rooms;
+    private Integer rooms;
 
     @Column(name = "bathrooms", nullable = false)
-    private int bathrooms;
+    private Integer bathrooms;
 
     @Column(name = "areaM2", nullable = false)
     private double areaM2;
@@ -51,12 +52,12 @@ public class Property {
     @JoinColumn(name = "idUser")
     private Users users;
 
-    public Property() {
+    public Estate() {
     }
 
-    public Property(int idProperty, String litle, String description, String adress, String district, String city, double monthlyPrice, String type, boolean state, int rooms, int bathrooms, double areaM2, LocalDate creationDate, Users users) {
+    public Estate(Integer idProperty, String title, String description, String adress, String district, String city, double monthlyPrice, String type, boolean state, Integer rooms, Integer bathrooms, double areaM2, LocalDate creationDate, Users users) {
         this.idProperty = idProperty;
-        this.litle = litle;
+        this.title = title;
         this.description = description;
         this.adress = adress;
         this.district = district;
@@ -71,20 +72,20 @@ public class Property {
         this.users = users;
     }
 
-    public int getIdProperty() {
+    public Integer getIdProperty() {
         return idProperty;
     }
 
-    public void setIdProperty(int idProperty) {
+    public void setIdProperty(Integer idProperty) {
         this.idProperty = idProperty;
     }
 
-    public String getLitle() {
-        return litle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setLitle(String litle) {
-        this.litle = litle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -143,19 +144,19 @@ public class Property {
         this.state = state;
     }
 
-    public int getRooms() {
+    public Integer getRooms() {
         return rooms;
     }
 
-    public void setRooms(int rooms) {
+    public void setRooms(Integer rooms) {
         this.rooms = rooms;
     }
 
-    public int getBathrooms() {
+    public Integer getBathrooms() {
         return bathrooms;
     }
 
-    public void setBathrooms(int bathrooms) {
+    public void setBathrooms(Integer bathrooms) {
         this.bathrooms = bathrooms;
     }
 
