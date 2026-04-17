@@ -21,17 +21,17 @@ public class Favorite {
     private Users user;
 
     @ManyToOne
-    @JoinColumn(name = "idProperty")
-    private Property property;
+    @JoinColumn(name = "idEstate")
+    private Estate estate;
 
     public Favorite() {
     }
 
-    public Favorite(Integer idFavorite, LocalDate creationDate, Users user, Property property) {
+    public Favorite(Integer idFavorite, LocalDate creationDate, Users user, Estate estate) {
         this.idFavorite = idFavorite;
         this.creationDate = creationDate;
         this.user = user;
-        this.property = property;
+        this.estate = estate;
     }
 
     public Integer getIdFavorite() {
@@ -58,11 +58,11 @@ public class Favorite {
         this.user = user;
     }
 
-    public Property getProperty() {
-        return property;
+    public Estate getEstate() {
+        return estate;
     }
 
-    public void setProperty(Property property) {
-        this.property = property;
+    public void setEstate(Estate estate) {
+        this.estate = estate;
     }
 }

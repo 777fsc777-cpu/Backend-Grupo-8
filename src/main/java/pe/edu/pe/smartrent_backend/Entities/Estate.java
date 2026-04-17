@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class Estate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idProperty;
+    private Integer idEstate;
 
     @Column(name = "title", length = 100, nullable = false)
     private String title;
@@ -55,8 +55,8 @@ public class Estate {
     public Estate() {
     }
 
-    public Estate(Integer idProperty, String title, String description, String adress, String district, String city, double monthlyPrice, String type, boolean state, Integer rooms, Integer bathrooms, double areaM2, LocalDate creationDate, Users users) {
-        this.idProperty = idProperty;
+    public Estate(Integer idEstate, String title, String description, String adress, String district, String city, double monthlyPrice, String type, boolean state, Integer rooms, Integer bathrooms, double areaM2, LocalDate creationDate, Users users) {
+        this.idEstate = idEstate;
         this.title = title;
         this.description = description;
         this.adress = adress;
@@ -72,12 +72,12 @@ public class Estate {
         this.users = users;
     }
 
-    public Integer getIdProperty() {
-        return idProperty;
+    public Integer getIdEstate() {
+        return idEstate;
     }
 
-    public void setIdProperty(Integer idProperty) {
-        this.idProperty = idProperty;
+    public void setIdEstate(Integer idEstate) {
+        this.idEstate = idEstate;
     }
 
     public String getTitle() {

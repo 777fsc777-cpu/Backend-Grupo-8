@@ -22,7 +22,7 @@ public class Models3D {
     private LocalDate createDate;
 
     @OneToOne
-    @JoinColumn(name = "idProperty")
+    @JoinColumn(name = "idEstate")
     private Estate estate;
 
     public Models3D() {

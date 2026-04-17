@@ -33,13 +33,13 @@ public class RiskReport {
     private Users user;
 
     @ManyToOne
-    @JoinColumn(name = "idProperty")
-    private Property property;
+    @JoinColumn(name = "idEstate")
+    private Estate estate;
 
     public RiskReport() {
     }
 
-    public RiskReport(Integer idRiskReport, String type, LocalDate creationDate, String riskLevel, String description, String details, Users user, Property property) {
+    public RiskReport(Integer idRiskReport, String type, LocalDate creationDate, String riskLevel, String description, String details, Users user, Estate estate) {
         this.idRiskReport = idRiskReport;
         this.type = type;
         this.creationDate = creationDate;
@@ -47,7 +47,7 @@ public class RiskReport {
         this.description = description;
         this.details = details;
         this.user = user;
-        this.property = property;
+        this.estate = estate;
     }
 
     public Integer getIdRiskReport() {
@@ -106,11 +106,11 @@ public class RiskReport {
         this.user = user;
     }
 
-    public Property getProperty() {
-        return property;
+    public Estate getEstate() {
+        return estate;
     }
 
-    public void setProperty(Property property) {
-        this.property = property;
+    public void setEstate(Estate estate) {
+        this.estate = estate;
     }
 }

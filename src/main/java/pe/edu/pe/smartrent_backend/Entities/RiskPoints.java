@@ -2,6 +2,8 @@ package pe.edu.pe.smartrent_backend.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "RiskPoints")
 public class RiskPoints {
@@ -25,8 +27,8 @@ public class RiskPoints {
     @Column(name = "severity", length = 100, nullable = false)
     private String severity;
 
-    @OneToMany
-    @JoinColumn(name = "idModels3D")
+    @ManyToOne
+    @JoinColumn(name = "idModels3D", nullable = false)
     private Models3D models3D;
 
     public RiskPoints() {

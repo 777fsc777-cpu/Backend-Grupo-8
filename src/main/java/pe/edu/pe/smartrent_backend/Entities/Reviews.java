@@ -27,19 +27,19 @@ public class Reviews {
     private Users user;
 
     @ManyToOne
-    @JoinColumn(name = "idProperty")
-    private Property property;
+    @JoinColumn(name = "idEstate")
+    private Estate estate;
 
     public Reviews() {
     }
 
-    public Reviews(Integer idReview, Double calification, String comment, LocalDate creationDate, Users user, Property property) {
+    public Reviews(Integer idReview, Double calification, String comment, LocalDate creationDate, Users user, Estate estate) {
         this.idReview = idReview;
         this.calification = calification;
         this.comment = comment;
         this.creationDate = creationDate;
         this.user = user;
-        this.property = property;
+        this.estate = estate;
     }
 
     public Integer getIdReview() {
@@ -82,11 +82,11 @@ public class Reviews {
         this.user = user;
     }
 
-    public Property getProperty() {
-        return property;
+    public Estate getEstate() {
+        return estate;
     }
 
-    public void setProperty(Property property) {
-        this.property = property;
+    public void setEstate(Estate estate) {
+        this.estate = estate;
     }
 }
