@@ -23,7 +23,7 @@ public class Messages {
     private LocalDate dateSent;
 
     @ManyToOne
-    @JoinColumn(name = " idConversation")
+    @JoinColumn(name = "idConversation")
     private Conversation conversation;
 
     @ManyToOne

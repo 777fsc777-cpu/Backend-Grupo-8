@@ -38,6 +38,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
+        <!-- ModelMapper -->
+        <!-- Sirve para convertir entidades a DTOs (y viceversa) sin escribir código manual -->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+        <!-- Swagger / OpenAPI UI -->
+        <!-- Genera automáticamente la documentación y permite probar los endpoints desde Swagger UI -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.6.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
