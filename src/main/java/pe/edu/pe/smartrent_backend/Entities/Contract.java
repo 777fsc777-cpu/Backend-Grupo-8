@@ -1,5 +1,3 @@
-package pe.edu.upc.api9233.entities;
-
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
