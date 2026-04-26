@@ -5,16 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.EstateCompleteDTO;
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.EstateDTO;
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.OwnerEstateDTO;
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.UserEstateDTO;
+import pe.edu.pe.smartrent_backend.DTOS.estateDTOS.EstateCompleteDTO;
+import pe.edu.pe.smartrent_backend.DTOS.estateDTOS.EstateDTO;
+import pe.edu.pe.smartrent_backend.DTOS.estateDTOS.OwnerEstateDTO;
+import pe.edu.pe.smartrent_backend.DTOS.estateDTOS.UserEstateDTO;
 import pe.edu.pe.smartrent_backend.Entities.Estate;
-import pe.edu.pe.smartrent_backend.Repositories.IEstateRepository;
 import pe.edu.pe.smartrent_backend.ServicesInterfaces.IEstate;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 

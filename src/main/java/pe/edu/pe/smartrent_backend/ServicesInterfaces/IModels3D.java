@@ -1,6 +1,5 @@
 package pe.edu.pe.smartrent_backend.ServicesInterfaces;
 
-import pe.edu.pe.smartrent_backend.DTOS.Models3DDTOs.ModelEstateDTO;
 import pe.edu.pe.smartrent_backend.Entities.Models3D;
 
 import java.util.List;

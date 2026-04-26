@@ -1,11 +1,11 @@
-package pe.edu.pe.smartrent_backend.DTOS.EstateDTOS;
+package pe.edu.pe.smartrent_backend.DTOS.estateDTOS;
 
 import pe.edu.pe.smartrent_backend.Entities.Users;
 
 import java.time.LocalDate;
 
-public class EstateDTO {
-
+public class EstateCompleteDTO {
+    private Integer idEstate;
     private String title;
     private String description;
     private String adress;
@@ -19,6 +19,14 @@ public class EstateDTO {
     private Double areaM2;
     private LocalDate creationDate;
     private Users users;
+
+    public Integer getIdEstate() {
+        return idEstate;
+    }
+
+    public void setIdEstate(Integer idEstate) {
+        this.idEstate = idEstate;
+    }
 
     public String getTitle() {
         return title;

@@ -1,12 +1,11 @@
 package pe.edu.pe.smartrent_backend.ServicesInterfaces;
 
 
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.OwnerEstateDTO;
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.UserEstateDTO;
+import pe.edu.pe.smartrent_backend.DTOS.estateDTOS.OwnerEstateDTO;
+import pe.edu.pe.smartrent_backend.DTOS.estateDTOS.UserEstateDTO;
 import pe.edu.pe.smartrent_backend.Entities.Estate;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 public interface IEstate {

@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.pe.smartrent_backend.DTOS.MessagesDTOS.MessagesDTO;
+import pe.edu.pe.smartrent_backend.DTOS.messagesDTOS.MessagesDTO;
 import pe.edu.pe.smartrent_backend.Entities.Messages;
-import pe.edu.pe.smartrent_backend.Entities.Notifications;
 import pe.edu.pe.smartrent_backend.ServicesInterfaces.IMessages;
 
 import java.util.List;
