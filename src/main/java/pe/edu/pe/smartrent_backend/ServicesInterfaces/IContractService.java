@@ -1,7 +1,6 @@
-package pe.edu.pe.smartrent_backend.ServicesInterfaces;
+package pe.edu.upc.api9233.servicesinterfaces;
 
-import pe.edu.pe.smartrent_backend.Entities.Contract;
-
+import pe.edu.upc.api9233.entities.Contract;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,30 +1,20 @@
-package pe.edu.pe.smartrent_backend.Controllers;
+package pe.edu.upc.api9233.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.EstateCompleteDTO;
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.EstateDTO;
-import pe.edu.pe.smartrent_backend.Entities.Estate;
-import pe.edu.pe.smartrent_backend.Repositories.IEstateRepository;
-import pe.edu.pe.smartrent_backend.ServicesInterfaces.IEstate;
-
-
-import pe.edu.pe.smartrent_backend.DTOS.ContractDTOS.ContractDTO;
-import pe.edu.pe.smartrent_backend.Entities.Contract;
-import pe.edu.pe.smartrent_backend.Entities.Estate;
-import pe.edu.pe.smartrent_backend.Entities.Users;
-import pe.edu.pe.smartrent_backend.Repositories.IEstateRepository;
-import pe.edu.pe.smartrent_backend.Repositories.IUserRepository;
-import pe.edu.pe.smartrent_backend.ServicesInterfaces.IContractService;
-
+import pe.edu.upc.api9233.dtos.ContractDTO;
+import pe.edu.upc.api9233.entities.Contract;
+import pe.edu.upc.api9233.entities.Estate;
+import pe.edu.upc.api9233.entities.Users;
+import pe.edu.upc.api9233.repositories.IEstateRepository;
+import pe.edu.upc.api9233.repositories.IUsersRepository;
+import pe.edu.upc.api9233.servicesinterfaces.IContractService;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 
 @RestController
 @RequestMapping("/api/contracts")
@@ -37,7 +27,7 @@ public class ContractController {
     private IEstateRepository eR;
 
     @Autowired
-    private IUserRepository uR;
+    private IUsersRepository uR;
 
     @GetMapping("/list")
     public ResponseEntity<List<ContractDTO>> list() {
@@ -50,8 +40,8 @@ public class ContractController {
             dto.setStatus(c.isStatus());
             dto.setCreatedAt(c.getCreatedAt());
             dto.setIdEstate(c.getEstate().getIdEstate());
-            dto.setIdLessor(c.getLessor().getIdUser());
-            dto.setIdLessee(c.getLessee().getIdUser());
+            dto.setIdLessor(c.getLessor().getIdUsers());
+            dto.setIdLessee(c.getLessee().getIdUsers());
             return dto;
         }).collect(Collectors.toList());
 
@@ -94,8 +84,8 @@ public class ContractController {
         response.setStatus(saved.isStatus());
         response.setCreatedAt(saved.getCreatedAt());
         response.setIdEstate(saved.getEstate().getIdEstate());
-        response.setIdLessor(saved.getLessor().getIdUser());
-        response.setIdLessee(saved.getLessee().getIdUser());
+        response.setIdLessor(saved.getLessor().getIdUsers());
+        response.setIdLessee(saved.getLessee().getIdUsers());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
@@ -117,8 +107,8 @@ public class ContractController {
         dto.setStatus(c.isStatus());
         dto.setCreatedAt(c.getCreatedAt());
         dto.setIdEstate(c.getEstate().getIdEstate());
-        dto.setIdLessor(c.getLessor().getIdUser());
-        dto.setIdLessee(c.getLessee().getIdUser());
+        dto.setIdLessor(c.getLessor().getIdUsers());
+        dto.setIdLessee(c.getLessee().getIdUsers());
 
         return ResponseEntity.ok(dto);
     }

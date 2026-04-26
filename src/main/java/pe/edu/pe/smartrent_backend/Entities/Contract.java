@@ -1,12 +1,8 @@
-package pe.edu.pe.smartrent_backend.Entities;
+package pe.edu.upc.api9233.entities;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.validation.constraints.Positive;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 
 @Entity
 @Table(name = "contract")
