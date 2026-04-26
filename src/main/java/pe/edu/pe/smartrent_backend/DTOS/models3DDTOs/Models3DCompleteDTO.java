@@ -1,8 +1,5 @@
-package pe.edu.pe.smartrent_backend.DTOS.Models3DDTOs;
+package pe.edu.pe.smartrent_backend.DTOS.models3DDTOs;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import pe.edu.pe.smartrent_backend.Entities.Estate;
 
 import java.time.LocalDate;

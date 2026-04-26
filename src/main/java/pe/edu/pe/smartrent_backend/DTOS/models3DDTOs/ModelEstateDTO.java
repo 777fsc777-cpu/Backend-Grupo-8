@@ -1,4 +1,4 @@
-package pe.edu.pe.smartrent_backend.DTOS.Models3DDTOs;
+package pe.edu.pe.smartrent_backend.DTOS.models3DDTOs;
 
 public class ModelEstateDTO {
     private String fileURL;

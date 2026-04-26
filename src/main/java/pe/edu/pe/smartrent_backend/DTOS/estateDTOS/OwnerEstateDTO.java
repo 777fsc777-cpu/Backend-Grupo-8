@@ -1,4 +1,4 @@
-package pe.edu.pe.smartrent_backend.DTOS.EstateDTOS;
+package pe.edu.pe.smartrent_backend.DTOS.estateDTOS;
 
 public class OwnerEstateDTO {
 

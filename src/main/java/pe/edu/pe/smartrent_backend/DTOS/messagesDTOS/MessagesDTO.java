@@ -1,4 +1,4 @@
-package pe.edu.pe.smartrent_backend.DTOS.MessagesDTOS;
+package pe.edu.pe.smartrent_backend.DTOS.messagesDTOS;
 
 import pe.edu.pe.smartrent_backend.Entities.Conversation;
 import pe.edu.pe.smartrent_backend.Entities.Users;

@@ -4,12 +4,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.OwnerEstateDTO;
-import pe.edu.pe.smartrent_backend.DTOS.EstateDTOS.UserEstateDTO;
+import pe.edu.pe.smartrent_backend.DTOS.estateDTOS.OwnerEstateDTO;
+import pe.edu.pe.smartrent_backend.DTOS.estateDTOS.UserEstateDTO;
 import pe.edu.pe.smartrent_backend.Entities.Estate;
 
 import java.util.List;
-import java.util.Objects;
 
 @Repository
 public interface IEstateRepository extends JpaRepository<Estate, Integer> {

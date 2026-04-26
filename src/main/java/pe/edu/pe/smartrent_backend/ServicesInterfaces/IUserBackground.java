@@ -1,0 +1,15 @@
+package pe.edu.pe.smartrent_backend.ServicesInterfaces;
+
+import pe.edu.pe.smartrent_backend.Entities.UsersBackground;
+
+import java.util.List;
+
+public interface IUserBackground {
+
+    public List<UsersBackground> list(); //listar
+    public void Register(UsersBackground ub); //Registrar
+    public void Update(UsersBackground ub); //Actualizar
+    public UsersBackground listId(Integer id); //ListarId
+    public void Delete(Integer id); //Eliminar
+
+}

@@ -2,7 +2,6 @@ package pe.edu.pe.smartrent_backend.ServicesImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.pe.smartrent_backend.DTOS.Models3DDTOs.ModelEstateDTO;
 import pe.edu.pe.smartrent_backend.Entities.Models3D;
 import pe.edu.pe.smartrent_backend.Repositories.IModels3DRepository;
 import pe.edu.pe.smartrent_backend.ServicesInterfaces.IModels3D;

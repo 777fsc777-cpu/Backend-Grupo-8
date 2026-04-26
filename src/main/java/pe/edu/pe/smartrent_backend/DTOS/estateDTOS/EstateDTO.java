@@ -1,14 +1,11 @@
-package pe.edu.pe.smartrent_backend.DTOS.EstateDTOS;
+package pe.edu.pe.smartrent_backend.DTOS.estateDTOS;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import pe.edu.pe.smartrent_backend.Entities.Users;
 
 import java.time.LocalDate;
 
-public class EstateCompleteDTO {
-    private Integer idEstate;
+public class EstateDTO {
+
     private String title;
     private String description;
     private String adress;
@@ -22,14 +19,6 @@ public class EstateCompleteDTO {
     private Double areaM2;
     private LocalDate creationDate;
     private Users users;
-
-    public Integer getIdEstate() {
-        return idEstate;
-    }
-
-    public void setIdEstate(Integer idEstate) {
-        this.idEstate = idEstate;
-    }
 
     public String getTitle() {
         return title;

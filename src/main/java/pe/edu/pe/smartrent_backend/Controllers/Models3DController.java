@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.pe.smartrent_backend.DTOS.Models3DDTOs.ModelEstateDTO;
-import pe.edu.pe.smartrent_backend.DTOS.Models3DDTOs.Models3DCompleteDTO;
-import pe.edu.pe.smartrent_backend.DTOS.Models3DDTOs.Models3DDTO;
+import pe.edu.pe.smartrent_backend.DTOS.models3DDTOs.Models3DCompleteDTO;
+import pe.edu.pe.smartrent_backend.DTOS.models3DDTOs.Models3DDTO;
 import pe.edu.pe.smartrent_backend.Entities.Models3D;
 import pe.edu.pe.smartrent_backend.ServicesInterfaces.IModels3D;
 

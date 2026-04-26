@@ -5,13 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.pe.smartrent_backend.DTOS.NotificationsDTOS.NotificationsDTO;
+import pe.edu.pe.smartrent_backend.DTOS.notificationsDTOS.NotificationsDTO;
 import pe.edu.pe.smartrent_backend.Entities.Notifications;
 import pe.edu.pe.smartrent_backend.ServicesInterfaces.INotifications;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/Notifications")
