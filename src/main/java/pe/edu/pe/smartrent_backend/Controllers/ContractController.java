@@ -41,8 +41,8 @@ public class ContractController {
             dto.setStatus(c.isStatus());
             dto.setCreatedAt(c.getCreatedAt());
             dto.setIdEstate(c.getEstate().getIdEstate());
-            dto.setIdLessor(c.getLessor().getIdUser());   // fix: getIdUsers() → getIdUser()
-            dto.setIdLessee(c.getLessee().getIdUser());   // fix: getIdUsers() → getIdUser()
+            dto.setIdLessor(c.getLessor().getIdUser());
+            dto.setIdLessee(c.getLessee().getIdUser());
             return dto;
         }).collect(Collectors.toList());
 
@@ -85,8 +85,8 @@ public class ContractController {
         response.setStatus(saved.isStatus());
         response.setCreatedAt(saved.getCreatedAt());
         response.setIdEstate(saved.getEstate().getIdEstate());
-        response.setIdLessor(saved.getLessor().getIdUser());   // fix: getIdUsers() → getIdUser()
-        response.setIdLessee(saved.getLessee().getIdUser());   // fix: getIdUsers() → getIdUser()
+        response.setIdLessor(saved.getLessor().getIdUser());
+        response.setIdLessee(saved.getLessee().getIdUser());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
@@ -108,8 +108,8 @@ public class ContractController {
         dto.setStatus(c.isStatus());
         dto.setCreatedAt(c.getCreatedAt());
         dto.setIdEstate(c.getEstate().getIdEstate());
-        dto.setIdLessor(c.getLessor().getIdUser());   // fix: getIdUsers() → getIdUser()
-        dto.setIdLessee(c.getLessee().getIdUser());   // fix: getIdUsers() → getIdUser()
+        dto.setIdLessor(c.getLessor().getIdUser());
+        dto.setIdLessee(c.getLessee().getIdUser());
 
         return ResponseEntity.ok(dto);
     }
