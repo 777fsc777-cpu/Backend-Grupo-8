@@ -13,6 +13,9 @@ import pe.edu.pe.smartrent_backend.Repositories.IEstateRepository;
 import pe.edu.pe.smartrent_backend.Repositories.IUserRepository;
 import pe.edu.pe.smartrent_backend.ServicesInterfaces.IContractService;
 
+import pe.edu.pe.smartrent_backend.DTOS.contractDTOS.EstateWithoutActiveContractDTO;
+import pe.edu.pe.smartrent_backend.DTOS.contractDTOS.LessorIncomeDTO;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -160,5 +163,14 @@ public class ContractController {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contract not found");
         }
+    }
+    @GetMapping("/reporte-ingresos-arrendador")
+    public List<LessorIncomeDTO> reporteIngresosArrendador() {
+        return cS.getIncomeByLessor();
+    }
+
+    @GetMapping("/reporte-inmuebles-sin-contrato-activo")
+        public List<EstateWithoutActiveContractDTO> reporteInmueblesSinContratoActivo() {
+    return cS.getEstatesWithoutActiveContract();
     }
 }
