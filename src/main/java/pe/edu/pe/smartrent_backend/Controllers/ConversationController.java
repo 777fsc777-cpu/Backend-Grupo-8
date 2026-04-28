@@ -12,6 +12,7 @@ import pe.edu.pe.smartrent_backend.Entities.Estate;
 import pe.edu.pe.smartrent_backend.Entities.Users;
 import pe.edu.pe.smartrent_backend.ServicesInterfaces.IConversationService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -95,8 +96,21 @@ public class ConversationController {
         }
     }
 
+
+
+
+    //Listas tipo Object[]
     @GetMapping("/reporte-popularidad")
-    public List<EstateConversationCountDTO> reportePopularidad() {
-        return cI.getConversationCountPerEstate();
+    public List<EstateConversationCountDTO> ECD() {
+        List<Object[]> resultados = cI.getConversationCountPerEstate();
+        List<EstateConversationCountDTO> lista = new ArrayList<>();
+        for (Object[] row : resultados) {
+            EstateConversationCountDTO dto = new EstateConversationCountDTO();
+            dto.setEstateTitle(((String) row[0]));
+            dto.setConversationCount(((Number) row[1]).intValue());
+            lista.add(dto);
+        }
+        return lista;
     }
+
 }

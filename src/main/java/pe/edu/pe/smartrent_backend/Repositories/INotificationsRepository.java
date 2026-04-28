@@ -12,8 +12,8 @@ public interface INotificationsRepository extends JpaRepository <Notifications, 
    //QuerySimple
     List<Notifications> findByReadFalse();
 
-    //QueryTomaa
-    @Query("SELECT n FROM Notifications n WHERE n.type = 'SEGURIDAD' AND n.createdDate >= CURRENT_DATE - 7")
+
+    @Query("SELECT n FROM Notifications n WHERE n.type = 'SEGURIDAD' AND n.createdDate >= LOCAL DATE - 7 day")
     List<Notifications> findRecentSecurityAlertsJPQL();
 
 }
