@@ -5,13 +5,6 @@ public class EstateWithoutActiveContractDTO {
     private Integer idEstate;
     private String estateTitle;
 
-    public EstateWithoutActiveContractDTO() {
-    }
-
-    public EstateWithoutActiveContractDTO(Integer idEstate, String estateTitle) {
-        this.idEstate = idEstate;
-        this.estateTitle = estateTitle;
-    }
 
     public Integer getIdEstate() {
         return idEstate;
