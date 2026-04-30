@@ -13,6 +13,10 @@ import pe.edu.pe.smartrent_backend.Repositories.IEstateRepository;
 import pe.edu.pe.smartrent_backend.Repositories.IUserRepository;
 import pe.edu.pe.smartrent_backend.ServicesInterfaces.IContractService;
 
+import pe.edu.pe.smartrent_backend.DTOS.contractDTOS.EstateWithoutActiveContractDTO;
+import pe.edu.pe.smartrent_backend.DTOS.contractDTOS.LessorIncomeDTO;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -161,4 +165,47 @@ public class ContractController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contract not found");
         }
     }
+
+    @GetMapping("/reporte-ingresos-arrendador")
+    public ResponseEntity<?> reporteIngresosArrendador() {
+        List<Object[]> lista = cS.getIncomeByLessorNative();
+
+        if (lista.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No hay contratos activos para generar el reporte");
+        }
+
+        List<LessorIncomeDTO> respuesta = new ArrayList<>();
+        for (Object[] fila : lista) {
+            LessorIncomeDTO dto = new LessorIncomeDTO();
+            dto.setIdLessor(((Number) fila[0]).intValue());
+            dto.setLessorName((String) fila[1]);
+            dto.setContractCount(((Number) fila[2]).longValue());
+            dto.setTotalMonthlyIncome(((Number) fila[3]).doubleValue());
+            respuesta.add(dto);
+        }
+
+        return ResponseEntity.ok(respuesta);
+    }
+
+    @GetMapping("/reporte-inmuebles-sin-contrato-activo")
+    public ResponseEntity<?> reporteInmueblesSinContratoActivo() {
+        List<Object[]> lista = cS.getEstatesWithoutActiveContractNative();
+
+        if (lista.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No hay inmuebles sin contrato activo");
+        }
+
+        List<EstateWithoutActiveContractDTO> respuesta = new ArrayList<>();
+        for (Object[] fila : lista) {
+            EstateWithoutActiveContractDTO dto = new EstateWithoutActiveContractDTO();
+            dto.setIdEstate(((Number) fila[0]).intValue());
+            dto.setEstateTitle((String) fila[1]);
+            respuesta.add(dto);
+        }
+
+        return ResponseEntity.ok(respuesta);
+    }
+
 }
