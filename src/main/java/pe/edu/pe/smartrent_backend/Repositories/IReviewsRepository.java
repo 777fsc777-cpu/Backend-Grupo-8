@@ -2,10 +2,7 @@ package pe.edu.pe.smartrent_backend.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import pe.edu.pe.smartrent_backend.DTOS.reviewsDTOS.ReviewsBelowAverageDTO;
-import pe.edu.pe.smartrent_backend.DTOS.reviewsDTOS.ReviewsLessorRatingDTO;
-import pe.edu.pe.smartrent_backend.DTOS.reviewsDTOS.ReviewsNoReviewEstateDTO;
-import pe.edu.pe.smartrent_backend.DTOS.reviewsDTOS.ReviewsRatingDistributionDTO;
+import org.springframework.data.repository.query.Param;
 import pe.edu.pe.smartrent_backend.Entities.Reviews;
 
 import java.util.List;

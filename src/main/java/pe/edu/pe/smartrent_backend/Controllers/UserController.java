@@ -32,13 +32,9 @@ UserController {
         uS.Register(p);
     }
 
-    //Modificar
     @PutMapping("/{id}")
     public ResponseEntity<String> modificar(@PathVariable int id, @RequestBody UserDTO dto) {
         ModelMapper m = new ModelMapper();
-        User p = m.map(dto, User.class);
-        p.setIdUser(id);
-
 
         User existente = uS.listId(id);
         if (existente == null) {
@@ -46,6 +42,18 @@ UserController {
                     .body("No se puede modificar. No existe un registro con el ID: " + id);
         }
 
+        User p = m.map(dto, User.class);
+        p.setIdUser(id);
+
+        // 3. RECONECTAR LOS ROLES (Paso crítico)
+        // Si el DTO trajo roles, debemos asegurar que cada rol reconozca a 'p' como su dueño
+        if (p.getRoles() != null && !p.getRoles().isEmpty()) {
+            p.getRoles().forEach(role -> role.setUser(p));
+        } else {
+            // Si el DTO no trajo roles, le devolvemos los que ya tenía en la BD
+            // para que Hibernate no intente borrarlos o ponerles null
+            p.setRoles(existente.getRoles());
+        }
 
         uS.Update(p);
         return ResponseEntity.ok("Registro con ID " + id + " modificado correctamente.");
@@ -138,9 +146,27 @@ UserController {
     }
 
     // Usuarios no verificados con antecedentes registrados (alto riesgo)
-    @GetMapping("/unverified-with-backgrounds")
-    public ResponseEntity<?> unverifiedWithBackgrounds() {
-        return ResponseEntity.ok(uS.findUnverifiedUsersWithBackgrounds());
+    @GetMapping("/unverified-backgrounds")
+    public List<UserUnverifiedWithBackgroundDTO> reporteUsuariosNoVerificadosConAntecedentes() {
+        // 1. Llamar al Service que ejecuta la query nativa
+        List<Object[]> resultados = uS.findUnverifiedUsersWithBackgrounds();
+        List<UserUnverifiedWithBackgroundDTO> lista = new ArrayList<>();
+
+        // 2. Recorrer los resultados y mapear manualmente al DTO
+        for (Object[] row : resultados) {
+            UserUnverifiedWithBackgroundDTO dto = new UserUnverifiedWithBackgroundDTO();
+
+            dto.setName((String) row[0]);     // u.name
+            dto.setLastName((String) row[1]); // u.last_name
+
+            // 3. Casstear el conteo (COUNT) de forma segura usando Number
+            if (row[2] != null) {
+                dto.setTotalBackgrounds(((Number) row[2]).intValue());
+            }
+
+            lista.add(dto);
+        }
+        return lista;
     }
 
     // Crecimiento de usuarios registrados por mes
@@ -157,19 +183,26 @@ UserController {
         return ResponseEntity.ok(lista);
     }
 
-    // Usuarios habilitados vs deshabilitados por rol
     @GetMapping("/enabled-by-role")
-    public ResponseEntity<?> enabledByRole() {
+    public List<UserEnabledByRoleDTO> reporteUsuariosHabilitadosPorRol() {
         List<Object[]> resultados = uS.findEnabledUsersByRole();
         List<UserEnabledByRoleDTO> lista = new ArrayList<>();
+
         for (Object[] row : resultados) {
             UserEnabledByRoleDTO dto = new UserEnabledByRoleDTO();
-            dto.setRole(row[0].toString());
-            dto.setEnabled(((Number) row[1]).intValue());
-            dto.setDisabled(((Number) row[2]).intValue());
+
+            dto.setRole((String) row[0]); // r.rol
+
+            if (row[1] != null) {
+                dto.setEnabled(((Number) row[1]).intValue());
+            }
+            if (row[2] != null) {
+                dto.setDisabled(((Number) row[2]).intValue());
+            }
+
             lista.add(dto);
         }
-        return ResponseEntity.ok(lista);
+        return lista;
     }
 
 }

@@ -1,5 +1,6 @@
 package pe.edu.pe.smartrent_backend.ServicesInterfaces;
 
+import org.springframework.validation.ObjectError;
 import pe.edu.pe.smartrent_backend.DTOS.userDTOS.UserEnabledByRoleDTO;
 import pe.edu.pe.smartrent_backend.DTOS.userDTOS.UserMonthlyGrowthDTO;
 import pe.edu.pe.smartrent_backend.DTOS.userDTOS.UserUnverifiedWithBackgroundDTO;
@@ -30,7 +31,7 @@ public interface IUser {
     public List<Object[]> RankingUsuariosIncidencias();
 
     List<Object[]> findVerificationStats();
-    List<UserUnverifiedWithBackgroundDTO> findUnverifiedUsersWithBackgrounds();
+    List<Object[]> findUnverifiedUsersWithBackgrounds();
     List<Object[]> findMonthlyGrowth();
     List<Object[]> findEnabledUsersByRole();
 }
