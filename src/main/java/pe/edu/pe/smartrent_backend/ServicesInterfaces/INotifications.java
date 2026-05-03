@@ -1,5 +1,6 @@
 package pe.edu.pe.smartrent_backend.ServicesInterfaces;
 
+import pe.edu.pe.smartrent_backend.DTOS.notificationsDTOS.NotificationsTypeDTO;
 import pe.edu.pe.smartrent_backend.DTOS.notificationsDTOS.*;
 import pe.edu.pe.smartrent_backend.Entities.Notifications;
 
@@ -20,6 +21,7 @@ public interface INotifications {
     //QuerySimple
     public List<Notifications> buscarNoLeidos();
     //Query
+    public List<NotificationsTypeDTO> getCountByType();
     public List<Notifications> findRecentSecurityAlertsJPQL();
 
     List<Object[]> findReadRateByType();
