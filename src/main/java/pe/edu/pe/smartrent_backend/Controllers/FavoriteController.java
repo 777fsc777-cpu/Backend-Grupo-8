@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.pe.smartrent_backend.DTOS.favoriteDTOS.*;
 import pe.edu.pe.smartrent_backend.DTOS.models3DDTOs.Models3DDTO;
@@ -27,6 +28,7 @@ public class FavoriteController {
 
     //Register
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<?> Register(@RequestBody FavoriteDTO fD){
         try{
             ModelMapper m = new ModelMapper();
@@ -39,6 +41,7 @@ public class FavoriteController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<?> Update(@RequestBody FavoriteCompleteDTO fD){
         Optional<Favorite> exist = fC.listId(fD.getIdFavorite());
         if(exist.isEmpty()){
@@ -84,6 +87,7 @@ public class FavoriteController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Integer id){
         Optional<Favorite> exist = fC.listId(id);
         if(exist.isPresent()){
