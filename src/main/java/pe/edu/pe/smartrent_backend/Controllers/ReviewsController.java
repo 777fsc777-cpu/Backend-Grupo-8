@@ -33,6 +33,7 @@ public class ReviewsController {
     private IEstate eS;
 
     @PostMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<String> registrar(@RequestBody ReviewsDTO rD) {
         ModelMapper m = new ModelMapper();
         Reviews r = m.map(rD, Reviews.class);
@@ -50,6 +51,7 @@ public class ReviewsController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<?> listarTodo() {
         ModelMapper m = new ModelMapper();
         List<ReviewsCompleteDTO> list = rI.list().stream().map(y -> {
@@ -105,6 +107,7 @@ public class ReviewsController {
 
     // 1. Inmuebles con calificación por debajo del promedio general
     @GetMapping("/below-average")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<?> belowAverage() {
         List<Object[]> resultados = rI.findEstatesBelowAverageRating();
         List<ReviewsBelowAverageDTO> lista = new ArrayList<>();
@@ -120,6 +123,7 @@ public class ReviewsController {
 
     // Arrendadores con mejor calificación promedio en sus inmuebles
     @GetMapping("/best-lessors")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<?> bestLessors() {
         List<Object[]> resultados = rI.findLessorsWithBestRating();
         List<ReviewsLessorRatingDTO> lista = new ArrayList<>();
