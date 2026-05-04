@@ -57,6 +57,7 @@ public class FavoriteController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<?> ListFavorite(){
         List<Favorite> favorites = fC.list();
 
@@ -99,6 +100,7 @@ public class FavoriteController {
     }
 
     @GetMapping("/most-demanded")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<List<FavoriteEstateDTO>> getMostDemanded() {
         List<Object[]> resultados = fC.findMostFavoritedEstates();
         List<FavoriteEstateDTO> lista = new ArrayList<>();
@@ -115,6 +117,7 @@ public class FavoriteController {
     }
 
     @GetMapping("/unconverted-demand")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<List<FavoriteNoContractDTO>> getUnconvertedDemand() {
         List<Object[]> resultados = fC.findFavoritedEstatesWithoutContract();
         List<FavoriteNoContractDTO> lista = new ArrayList<>();
@@ -129,6 +132,7 @@ public class FavoriteController {
     }
 
     @GetMapping("/most-active-users")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<List<FavoriteUsersDTO>> getMostActiveUsers() {
         List<Object[]> resultados = fC.findMostActiveUsers();
         List<FavoriteUsersDTO> lista = new ArrayList<>();
@@ -143,6 +147,7 @@ public class FavoriteController {
     }
 
     @GetMapping("/monthly-trends")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'ARRENDATARIO', 'ARRENDADOR')")
     public ResponseEntity<List<FavoriteMonthlyTrendDTO>> getMonthlyTrends() {
         List<Object[]> resultados = fC.findMonthlyTrend();
         List<FavoriteMonthlyTrendDTO> lista = new ArrayList<>();
